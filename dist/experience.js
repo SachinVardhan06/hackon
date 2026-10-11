@@ -1,19 +1,11 @@
-const stages=[
-  {code:'-100 BZ',heading:'BEFORE THE SIGNAL',kicker:'HACKON / THE BEGINNING',title:'EVERYTHING<br>STARTS AT <em>ZERO.</em>',copy:'The world of technology moves at full speed. Find your place in the signal.'},
-  {code:'-75 BZ',heading:'A WORLD IN MOTION',kicker:'01 / SEE THE CHANGE',title:'THE WORLD<br>KEEPS <em>MOVING.</em>',copy:'Every launch, breakthrough, and new idea changes what comes next.'},
-  {code:'-50 BZ',heading:'FIND THE SIGNAL',kicker:'02 / CUT THROUGH',title:'LESS NOISE.<br>MORE <em>SIGNAL.</em>',copy:'Follow the technology stories that help builders understand the shift.'},
-  {code:'-25 BZ',heading:'GO TO THE SOURCE',kicker:'03 / STAY CURIOUS',title:'GO DEEPER.<br>THINK <em>FURTHER.</em>',copy:'Read from the original source and stay close to the conversations shaping tomorrow.'},
-  {code:'0 BZ',heading:'WELCOME TO HACKON',kicker:'04 / YOUR NEXT MOVE',title:'THE FUTURE<br>IS <em>OPEN.</em>',copy:'Subscribe for the developer news and updates worth your attention.'}
-];
-const $=(q)=>document.querySelector(q);let current=0;let wheelLocked=false;let soundOn=false;
-function setStage(index){current=Math.max(0,Math.min(stages.length-1,index));const s=stages[current];document.body.dataset.stage=String(current);$('#stage-code').textContent=s.code;$('#stage-heading').textContent=s.heading;$('#scene-kicker').textContent=s.kicker;$('#scene-title').innerHTML=s.title;$('#scene-copy').textContent=s.copy;$('#progress-label').textContent=`0${current+1} / 05`;$('#progress-fill').style.width=`${(current+1)*20}%`;document.querySelectorAll('[data-stage]').forEach((b,i)=>{b.classList.toggle('active',i===current);b.setAttribute('aria-current',i===current?'step':'false')});$('#next-stage').innerHTML=current===4?'EXPLORE MEMBERSHIP <span>↗</span>':'EXPLORE THE EXPERIENCE <span>↓</span>'}
-const show=(id)=>{const el=$(id);el.classList.add('open');el.setAttribute('aria-hidden','false');el.querySelector('button')?.focus()};const hide=(id)=>{const el=$(id);el.classList.remove('open');el.setAttribute('aria-hidden','true')};
-document.querySelectorAll('[data-stage]').forEach(b=>b.addEventListener('click',()=>setStage(Number(b.dataset.stage))));$('#next-stage').addEventListener('click',()=>current===4?show('#sheet'):setStage(current+1));
-$('#experience').addEventListener('wheel',e=>{if(wheelLocked||$('#sheet').classList.contains('open'))return;wheelLocked=true;setStage(current+(e.deltaY>0?1:-1));setTimeout(()=>wheelLocked=false,650)},{passive:true});
-let touchStart=0;$('#experience').addEventListener('touchstart',e=>touchStart=e.changedTouches[0].clientY,{passive:true});$('#experience').addEventListener('touchend',e=>{const delta=touchStart-e.changedTouches[0].clientY;if(Math.abs(delta)>55)setStage(current+(delta>0?1:-1))},{passive:true});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){hide('#sheet')}else if(!$('#sheet').classList.contains('open')){if(['ArrowDown','PageDown'].includes(e.key))setStage(current+1);if(['ArrowUp','PageUp'].includes(e.key))setStage(current-1)}});
-$('#open-plans').addEventListener('click',()=>show('#sheet'));$('#close-sheet').addEventListener('click',()=>hide('#sheet'));document.querySelector('[data-close]').addEventListener('click',()=>hide('#sheet'));
-// Plan selection opens a free preview. Do not treat this choice as proof of payment.
-document.querySelectorAll('[data-plan]').forEach(button=>button.addEventListener('click',()=>{window.location.assign('./newsroom/')}));
-$('#sound-toggle').addEventListener('click',()=>{soundOn=!soundOn;$('#sound-toggle').setAttribute('aria-pressed',String(soundOn));$('#sound-toggle span').textContent=soundOn?'SOUND ON':'SOUND OFF';if(soundOn){const C=window.AudioContext||window.webkitAudioContext;try{window.hackonAudio=window.hackonAudio||new C();const ctx=window.hackonAudio;const osc=ctx.createOscillator(),gain=ctx.createGain();osc.type='sine';osc.frequency.value=110;gain.gain.value=.006;osc.connect(gain).connect(ctx.destination);osc.start();window.hackonOsc=osc;window.hackonGain=gain}catch{soundOn=false;$('#sound-toggle span').textContent='SOUND OFF'}}else{window.hackonOsc?.stop();window.hackonOsc=null}});
-setStage(0);
+const menuToggle=document.querySelector('#menu-toggle');
+const menu=document.querySelector('#nav-menu');
+menuToggle.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation')});
+menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{menu.hidden=true;menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation')}));
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){menu.hidden=true;menuToggle.setAttribute('aria-expanded','false')}});
+// A low-contrast text field gives the hero the technical texture of a live signal.
+const alphabet='0101010011001100HACKONX<>/{}[]';
+let seed=41;
+const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+const rows=Array.from({length:54},()=>Array.from({length:140},()=>alphabet[Math.floor(random()*alphabet.length)]).join('')).join('\n');
+document.querySelector('#data-field').textContent=rows;

@@ -1,24 +1,43 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#073e36"><meta name="description" content="Hackon: an immersive path to the developer news that matters. Subscribe for updates and access.">
-  <title>Hackon — Start at Zero</title><link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171717">
+  <meta name="description" content="Hackon brings the developer and technology stories worth your attention into one live newsroom.">
+  <title>Hackon | The Developer Signal</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./experience.css"><script defer src="./experience.js"></script>
+  <link rel="stylesheet" href="./experience.css">
+  <script defer src="./experience.js"></script>
 </head>
 <body>
-  <main class="experience" id="experience">
-    <div class="sea" aria-hidden="true"><div class="sea-noise"></div><div class="island island-back"></div><div class="island island-main"><div class="island-lines"></div><div class="tower tower-one"></div><div class="tower tower-two"></div><div class="tower tower-three"></div><div class="tower tower-four"></div><div class="tower tower-five"></div><div class="core"><span>H</span></div></div><div class="mist"></div></div>
-    <header class="chrome"><a class="logo" href="/" aria-label="Hackon home">hackon<span>✳</span></a><div class="top-center"><span class="top-rule"></span><span id="stage-heading">BEFORE THE SIGNAL</span><span class="top-rule"></span></div><button class="pill top-pill" id="open-plans" type="button">GET ACCESS <span>↗</span></button></header>
-    <div class="left-rail" aria-label="Experience stages"><span class="rail-label">THE JOURNEY</span><div class="stages"><button type="button" data-stage="0" class="active" aria-label="Stage one">01</button><button type="button" data-stage="1" aria-label="Stage two">02</button><button type="button" data-stage="2" aria-label="Stage three">03</button><button type="button" data-stage="3" aria-label="Stage four">04</button><button type="button" data-stage="4" aria-label="Stage five">05</button></div><span class="rail-label vertical">SCROLL TO EXPLORE</span></div>
-    <div class="right-rail"><span id="stage-code">-100 BZ</span><div class="rail-line"></div><span>BUILT FOR THE CURIOUS</span></div>
-    <section class="story-overlay" aria-live="polite"><p class="kicker" id="scene-kicker">HACKON / THE BEGINNING</p><h1 id="scene-title">EVERYTHING<br>STARTS AT <em>ZERO.</em></h1><p id="scene-copy">The world of technology moves at full speed. Find your place in the signal.</p><button class="scene-next" id="next-stage" type="button">EXPLORE THE EXPERIENCE <span>↓</span></button></section>
-    <div class="bottom-controls"><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="Toggle ambient sound">◌ <span>SOUND OFF</span></button><div class="progress"><span id="progress-label">01 / 05</span><div class="progress-track"><i id="progress-fill"></i></div><span>THE SIGNAL</span></div><a class="bottom-access" href="./newsroom/">ENTER THE NEWSROOM <span>↗</span></a></div>
-    <div class="bottom-note">AN ORIGINAL HACKON EXPERIENCE <span>✳</span> NEWS FOR PEOPLE BUILDING WHAT'S NEXT</div>
-  </main>
+  <div class="site-nav">
+    <a class="home-chip" href="#top">‹ HOME ›</a>
+    <div class="nav-core"><a class="nav-brand" href="#top">hackon<span>✳</span></a><button id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation"><span></span><span></span><span></span></button></div>
+    <a class="nav-cta" href="./newsroom/">Explore News <span>↗</span></a>
+  </div>
+  <nav class="nav-menu" id="nav-menu" aria-label="Main navigation" hidden><a href="#about">About</a><a href="#why">Our Edge</a><a href="#plans">Membership</a><a href="./newsroom/">Newsroom ↗</a></nav>
 
-  <section class="sheet" id="sheet" aria-hidden="true" aria-labelledby="sheet-title"><div class="sheet-backdrop" data-close></div><div class="sheet-panel" role="dialog" aria-modal="true"><div class="sheet-top"><span>HACKON / MEMBERSHIP</span><button type="button" id="close-sheet" aria-label="Close subscription panel">✕</button></div><div class="sheet-intro"><p class="eyebrow">THE SIGNAL, UNLOCKED</p><h2 id="sheet-title">Go beyond<br><em>the surface.</em></h2><p>Choose a plan to preview the Hackon newsroom. Paid subscriptions will start when Stripe checkout is connected.</p></div><div class="plans"><article class="plan"><div class="plan-line"><span>01 / SEVEN DAYS</span><span>SHORT PASS</span></div><h3>7 days</h3><p class="price">$1 <small>/ 7 days</small></p><p>A week to explore the signal.</p><button type="button" data-plan="week">CHOOSE 7 DAYS <span>↗</span></button></article><article class="plan selected"><div class="plan-line"><span>02 / ONE MONTH</span><span>POPULAR</span></div><h3>1 month</h3><p class="price">$5 <small>/ month</small></p><p>Stay current as the story changes.</p><button type="button" data-plan="month">CHOOSE 1 MONTH <span>↗</span></button></article><article class="plan"><div class="plan-line"><span>03 / ONE YEAR</span><span>BEST VALUE</span></div><h3>1 year</h3><p class="price">$10 <small>/ year</small></p><p>A full year ahead of the curve.</p><button type="button" data-plan="year">CHOOSE 1 YEAR <span>↗</span></button></article></div><p class="sheet-status" id="sheet-status" role="status">PREVIEW ACCESS · NO PAYMENT IS TAKEN</p><div class="sheet-footer"><span>STRIPE CHECKOUT COMING SOON</span><span>NEWSROOM PREVIEW IS OPEN</span></div></div></section>
+  <main>
+    <section class="hero" id="top">
+      <div class="data-field" id="data-field" aria-hidden="true"></div>
+      <div class="hero-content"><p class="eyebrow">HACKON X / REIMAGINE WHAT'S NEXT</p><h1>The Developer<br><span>Signal.</span></h1><p class="hero-sub">The stories shaping technology, brought into focus.<br>See what matters. Follow what moves next.</p></div>
+      <div class="signal-object" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="orbit orbit-c"></div><div class="orbit orbit-d"></div><div class="orbit-core"></div></div>
+      <a class="hero-scroll" href="#about">KEEP SCROLLING <span>⌄</span></a>
+      <span class="hero-index">01 / THE SIGNAL</span>
+    </section>
+
+    <section class="statement" id="about"><div class="section-top"><span>01 / ABOUT HACKON</span><span>TECHNOLOGY MOVES. STAY CLOSE.</span></div><div class="statement-main"><p class="section-kicker">FROM NOISE TO KNOWLEDGE</p><h2>Know what matters.<br><span>Move with the future.</span></h2><p class="statement-copy">New ideas arrive every minute. Hackon follows the launches, breakthroughs, and conversations that developers need to see, with a clear path back to the original source.</p><a class="text-link" href="./newsroom/">VIEW THE NEWSROOM <span>↗</span></a></div><div class="statement-grid"><div><span>01 / DISCOVER</span><h3>Find the signal.</h3><p>See current technology stories in one place, without losing the source.</p></div><div><span>02 / EXPLORE</span><h3>Go beyond headlines.</h3><p>Follow an idea to the people and projects behind it.</p></div><div><span>03 / STAY CURRENT</span><h3>Keep moving.</h3><p>Return to a feed that updates as the conversation changes.</p></div></div></section>
+
+    <section class="edge" id="why"><div class="edge-pattern" aria-hidden="true"></div><div class="section-top"><span>02 / OUR EDGE</span><span>BUILT FOR THE CURIOUS</span></div><div class="edge-mark">✳</div><div class="edge-bottom"><div><p class="section-kicker">THE NEXT STORY IS ALREADY HERE</p><h2>Fast ideas.<br>Clear perspective.</h2></div><p>Hackon turns a fast-moving stream of developer news into a place you can explore. The newsroom links directly to the people and publications creating the work.</p></div></section>
+
+    <section class="plans-section" id="plans"><div class="section-top"><span>03 / MEMBERSHIP</span><span>CHOOSE YOUR ACCESS</span></div><div class="plans-intro"><p class="section-kicker">THE SIGNAL IS OPEN</p><h2>Stay in the loop.</h2><p>Choose a plan to enter the newsroom preview. Stripe checkout will be connected before paid subscriptions begin.</p></div><div class="plan-grid"><article class="plan"><div class="plan-head"><span>01 / SHORT PASS</span><span>7 DAYS</span></div><h3>Seven days</h3><p class="plan-price">$1 <small>/ 7 days</small></p><p class="plan-copy">A week to explore what’s moving.</p><a href="./newsroom/">CHOOSE 7 DAYS <span>↗</span></a></article><article class="plan highlighted"><div class="plan-head"><span>02 / POPULAR</span><span>1 MONTH</span></div><h3>One month</h3><p class="plan-price">$5 <small>/ month</small></p><p class="plan-copy">A closer view of every new shift.</p><a href="./newsroom/">CHOOSE 1 MONTH <span>↗</span></a></article><article class="plan"><div class="plan-head"><span>03 / BEST VALUE</span><span>1 YEAR</span></div><h3>One year</h3><p class="plan-price">$10 <small>/ year</small></p><p class="plan-copy">A full year of what comes next.</p><a href="./newsroom/">CHOOSE 1 YEAR <span>↗</span></a></article></div><p class="plan-note">FREE PREVIEW ACCESS / NO PAYMENT IS TAKEN YET</p></section>
+
+    <section class="final-cta"><div class="final-art" aria-hidden="true"><div></div><div></div><div></div></div><p class="section-kicker">HACKON X / THE NEWSROOM</p><h2>The next signal<br>starts here.</h2><a href="./newsroom/">ENTER THE NEWSROOM <span>↗</span></a></section>
+  </main>
+  <footer><span>© 2026 HACKON</span><a href="#top">BACK TO TOP ↑</a><span>NEWS FOR PEOPLE BUILDING WHAT'S NEXT</span></footer>
 </body>
 </html>
