@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f2f3ed">
+  <meta name="description" content="Hackon newsroom: current technology and developer stories from the original sources.">
+  <title>Newsroom — Hackon</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./newsroom.css">
+  <script defer src="./newsroom.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="../" aria-label="Hackon home">hackon<span>✳</span></a>
+    <span class="header-center">THE NEWSROOM <i></i> THE NEWSROOM</span>
+    <a class="back-link" href="../">BACK TO EXPERIENCE <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="news-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> LIVE FROM THE SOURCE <span class="slash">/</span> HACKON NEWSROOM</p>
+        <h1 id="news-title">Stay close to<br>what's <em>next.</em></h1>
+        <p class="hero-description">The technology stories worth a closer look. Explore what developers, makers, and curious minds are reading right now.</p>
+        <div class="hero-bottom"><span id="updated-at">FETCHING THE LATEST STORIES</span><button id="refresh" type="button" aria-label="Refresh stories">REFRESH FEED <span>↻</span></button></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orb orb-three"></div><div class="visual-core">H</div><div class="visual-caption">THE SIGNAL IS ALWAYS MOVING <span>✳</span></div></div>
+    </section>
+
+    <section class="feed-section" aria-labelledby="feed-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE CURRENT</p><h2 id="feed-title">Latest signals<span>✳</span></h2></div><div class="feed-note">CURATED FROM HACKER NEWS<br>LINKS OPEN THE ORIGINAL SOURCE</div></div>
+      <div class="feed-controls"><div class="filters" role="group" aria-label="Filter stories"><button class="active" data-filter="all" type="button" aria-pressed="true">ALL STORIES</button><button data-filter="ai" type="button" aria-pressed="false">AI</button><button data-filter="engineering" type="button" aria-pressed="false">ENGINEERING</button><button data-filter="security" type="button" aria-pressed="false">SECURITY</button></div><span id="story-count">LOADING…</span></div>
+      <div id="feed-status" class="feed-status" role="status">Connecting to the latest stories…</div>
+      <div id="stories" class="story-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="closing"><span>STAY CURIOUS. STAY CURRENT.</span><p>Good ideas move fast.<br><em>Keep up with them.</em></p><a href="../">EXPLORE HACKON <span>↗</span></a></section>
+  </main>
+  <footer><span>HACKON ✳ NEWSROOM</span><span>LIVE STORIES SOURCED FROM <a href="https://news.ycombinator.com/" target="_blank" rel="noopener noreferrer">HACKER NEWS ↗</a></span><span class="preview">FREE PREVIEW · STRIPE CHECKOUT COMING SOON</span></footer>
+</body>
+</html>
